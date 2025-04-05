@@ -1,4 +1,3 @@
-import MenuList from "./MenuList";
 import { useState } from "react";
 
 
@@ -11,13 +10,13 @@ interface FoodItemsProps{
       isFavorite: boolean;
 }
 
-function handleClickFavorite(isFavorite: boolean){
-  isFavorite=false;  
-}
 
 function MenuItem({id, foodImage, itemName, description, price, isFavorite}: FoodItemsProps) {
     //create a state isFavorite that has the inital value of isFavorite that comes from the props
-  const [state, setState] = useState(isFavorite);
+  const [stateIsFavorite, setState] = useState(isFavorite);
+  const handleClickFavorite = () => {
+    setState(prev => !prev);
+  };
     return (
       <section className="itemContainer">
         <figure className="imgContainer">
@@ -37,7 +36,7 @@ function MenuItem({id, foodImage, itemName, description, price, isFavorite}: Foo
                 - onClick, will toggle the isFavorite state,
                 - content will be conditionally rendered as "❤️" or "🖤", depending on the value of isFavorite
             */}
-        <button type="button" onClick={() => handleClickFavorite(isFavorite)}>{isFavorite===true ? "❤️" : "🖤"}</button>
+        <button type="button"  onClick={handleClickFavorite}>{stateIsFavorite ? "❤️" : "🖤"}</button>
       </section>
     );
   }
