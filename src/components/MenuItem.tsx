@@ -15,7 +15,7 @@ function MenuItem({id, foodImage, itemName, description, price, isFavorite}: Foo
     //create a state isFavorite that has the inital value of isFavorite that comes from the props
   const [stateIsFavorite, setState] = useState(isFavorite);
   const handleClickFavorite = () => {
-    setState(prev => !prev);
+    setState(!isFavorite);
   };
     return (
       <section className="itemContainer">
