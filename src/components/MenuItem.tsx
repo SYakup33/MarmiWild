@@ -13,7 +13,7 @@ interface FoodItemsProps{
 
 function MenuItem({item}: FoodItemsProps) {
     //create a state isFavorite that has the inital value of isFavorite that comes from the props
-  const [stateIsFavorite, setState] = useState(false);
+  const [stateIsFavorite, setState] = useState(item.isFavorite);
 
   function handleClickFavorite() {
     setState(!stateIsFavorite);
